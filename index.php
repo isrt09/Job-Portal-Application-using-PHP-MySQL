@@ -1,4 +1,6 @@
-<?php include_once('header.php'); ?>  
+<?php 
+   require_once('header.php');
+ ?>
    <body>
       <!-- Preloader Starts -->
       <div class="preloader">
@@ -44,7 +46,7 @@
                         </li>
                         <li class="menu-btn">
                            <a href="#" class="login">log in</a>
-                           <a href="#" class="template-btn">sign up</a>
+                           <a href="registration.php" class="template-btn">sign up</a>
                         </li>
                      </ul>
                   </div>
@@ -542,4 +544,6 @@
       </section>
       <!-- Download Area End -->
       <!-- Footer Area Starts -->
-<?php include_once('footer.php'); ?>        
+<?php 
+   include_once('footer.php');
+ ?>
