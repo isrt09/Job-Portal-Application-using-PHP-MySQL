@@ -13,34 +13,50 @@
 
    if(isset($_POST['save'])){
       extract($_POST);
-      $first_name       = check_data($first_name);
-      $middle_name      = check_data($middle_name);
-      $last_name        = check_data($last_name);
-      $email            = check_data($email);
-      $mobile           = check_data($mobile);
-      $password         = check_data($password);
-      $confirm_password = check_data($confirm_password);
-      
+      $first_name       = checkdata($first_name);
+      $middle_name      = checkdata($middle_name);
+      $last_name        = checkdata($last_name);
+      $email            = checkdata($email);
+      $mobile           = checkdata($mobile);
+      $password         = checkdata($password);
+      $confirm_password = checkdata($confirm_password);
+
       if(!$first_name){
          $first_name_error = 'First Name Required';
+         $submit = false;
       }
       if(!$middle_name){
          $middle_name_error = 'Middle Name Required';
+         $submit = false;
       }
       if(!$last_name){
          $last_name_error = 'Last Name Required';
+          $submit = false;
       }
-      if(!$email){
-         $email_error = 'Email Required';
+       if(!$email){
+          $email_error = 'Email is requierd'; 
+          $submit = false;     
+      }elseif($email && !filter_var($email,FILTER_VALIDATE_EMAIL)){
+          $email_error = 'Provide Valid Email';
+          $submit = false;  
+      }elseif($email && filter_var($email,FILTER_VALIDATE_EMAIL)){
+           $is_exist = checkemail($email);
+           if($is_exist){
+               $email_error = 'This Email Already exists!!';
+               $submit = false; 
+           }           
       }
       if(!$mobile){
          $mobile_error = 'Mobile Required';
+          $submit = false;
       }
       if(!$password){
          $password_error = 'Password Required';
+          $submit = false;
       }
-      if(!$confirm_password){
-         $confirm_pass_error = 'Confirm Password Required';
+      if(!$confirm_password && strlen($password<5)){
+         $confirm_pass_error = 'Password must be 5 characters';
+          $submit = false;
       }
 
       if($first_name && $middle_name && $last_name && $email && $mobile && $password && $confirm_password){
