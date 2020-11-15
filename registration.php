@@ -1,6 +1,7 @@
 <?php 
    include('db/db_connect.php');
    include_once('header.php');
+   include 'functions.php';
    
    $first_name_error 	= '';	
    $middle_name_error 	= '';	
@@ -12,6 +13,14 @@
 
    if(isset($_POST['save'])){
       extract($_POST);
+      $first_name       = check_data($first_name);
+      $middle_name      = check_data($middle_name);
+      $last_name        = check_data($last_name);
+      $email            = check_data($email);
+      $mobile           = check_data($mobile);
+      $password         = check_data($password);
+      $confirm_password = check_data($confirm_password);
+      
       if(!$first_name){
          $first_name_error = 'First Name Required';
       }
@@ -35,7 +44,8 @@
       }
 
       if($first_name && $middle_name && $last_name && $email && $mobile && $password && $confirm_password){
-         $sql = "INSERT INTO tbl_users(first_name,middle_name,last_name,mobile,email,password) VALUES('$first_name','$middle_name','$last_name','$mobile','$email','$password')";
+
+      $sql = "INSERT INTO tbl_users(first_name,middle_name,last_name,mobile,email,password) VALUES('$first_name','$middle_name','$last_name','$mobile','$email','$password')";
       
       $result = mysqli_query($con, $sql);
          if($result){
