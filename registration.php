@@ -10,6 +10,7 @@
    $email_error 		   = '';	
    $password_error 		= '';	
    $confirm_pass_error  = '';
+   $success             = '';
 
    if(isset($_POST['save'])){
       extract($_POST);
@@ -52,10 +53,17 @@
       }
       if(!$password){
          $password_error = 'Password Required';
-          $submit = false;
+         $submit = false;
+      }else if($password && (strlen($password)<5)){
+         $password_error = 'Password must be greater than five characters...';
+         $submit = false;
       }
-      if(!$confirm_password && strlen($password<5)){
-         $confirm_pass_error = 'Password must be 5 characters';
+      if(!$confirm_password){
+         $confirm_pass_error = 'Confirm Password Required';
+         $submit = false;
+      }
+      if($password && $confirm_password && ($password != $confirm_password)){
+         $confirm_pass_error = 'Password not matched...';
           $submit = false;
       }
 
@@ -65,38 +73,42 @@
       
       $result = mysqli_query($con, $sql);
          if($result){
-            echo "Data Saved Successfully!";
+            $success = "Data Saved Successfully!";            
          }else{
-            echo "Failed Data Saved into Database";
+            $fail    = "Failed Data Saved into Database";
          }
       }      
    }         
 ?>
 <div class="container">
+   <h3 align="center">Registration Form </h3>
+   <?php if($success) { ?>
+   <h4 align="center" style="color: green;"> <?php echo $success; ?></h4>
+   <?php } ?>
    <form action="registration.php" method="post">
       <div class="form-group">
          <label for="first_name">First Name</label>
-         <input type="text" name="first_name" class="form-control" id="first_name" >
+         <input type="text" name="first_name" class="form-control" id="first_name" value="<?php if(isset($first_name)) { echo $first_name;} ?>">
          <span style="color: red;"><?php echo $first_name_error; ?></span>
       </div>
        <div class="form-group">
          <label for="middle_name">Middle Name</label>
-         <input type="text" name="middle_name" class="form-control" id="middle_name" >
+         <input type="text" name="middle_name" class="form-control" id="middle_name" value="<?php if(isset($middle_name)) { echo $middle_name;} ?>" >
          <span style="color: red;"><?php echo $middle_name_error; ?></span>
       </div>
        <div class="form-group">
          <label for="last_name">Last Name</label>
-         <input type="text" name="last_name" class="form-control" id="last_name" >
+         <input type="text" name="last_name" class="form-control" id="last_name" value="<?php if(isset($last_name)) { echo $last_name;} ?>" >
          <span style="color: red;"><?php echo $last_name_error; ?></span>
       </div>
        <div class="form-group">
          <label for="mobile">Mobile</label>
-         <input type="text" name="mobile" class="form-control" id="mobile" >
+         <input type="text" name="mobile" class="form-control" id="mobile" value="<?php if(isset($mobile)) { echo $mobile;} ?>">
          <span style="color: red;"><?php echo $mobile_error; ?></span>
       </div>
        <div class="form-group">
          <label for="email">Email</label>
-         <input type="email" name="email" class="form-control" id="email" >
+         <input type="email" name="email" class="form-control" id="email" value="<?php if(isset($email)) { echo $email;} ?>">
           <span style="color: red;"><?php echo $email_error; ?></span>
       </div>
       <div class="form-group">
