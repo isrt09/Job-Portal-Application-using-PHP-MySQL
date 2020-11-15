@@ -68,8 +68,8 @@
       }
 
       if($first_name && $middle_name && $last_name && $email && $mobile && $password && $confirm_password){
-
-      $sql = "INSERT INTO tbl_users(first_name,middle_name,last_name,mobile,email,password) VALUES('$first_name','$middle_name','$last_name','$mobile','$email','$password')";
+      $md5 = md5($password);
+      $sql = "INSERT INTO tbl_users(first_name,middle_name,last_name,mobile,email,password) VALUES('$first_name','$middle_name','$last_name','$mobile','$email','$md5')";
       
       $result = mysqli_query($con, $sql);
          if($result){
