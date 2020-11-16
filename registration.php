@@ -73,7 +73,8 @@
       
       $result = mysqli_query($con, $sql);
          if($result){
-            $success = "Data Saved Successfully!";            
+            $success = "Data Saved Successfully!";  
+            $first_name = $middle_name = $last_name = $email = $mobile = $password = $confirm_password = '';          
          }else{
             $fail    = "Failed Data Saved into Database";
          }
