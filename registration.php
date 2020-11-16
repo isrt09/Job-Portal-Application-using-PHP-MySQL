@@ -1,4 +1,4 @@
-<?php 
+<?php    
    include('db/db_connect.php');
    include_once('header.php');
    include 'functions.php';
@@ -81,7 +81,7 @@
    }         
 ?>
 <div class="container">
-   <h3 align="center">Registration Form </h3>
+   <h3 align="center">Registration Form </h3>   
    <?php if($success) { ?>
    <h4 align="center" style="color: green;"> <?php echo $success; ?></h4>
    <?php } ?>

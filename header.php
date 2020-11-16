@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -62,8 +63,12 @@
                            </ul>
                         </li>
                         <li class="menu-btn">
-                           <a href="login.php" class="login">log in</a>
-                           <a href="registration.php" class="template-btn">sign up</a>
+                              <?php if(!isset($_SESSION['users_id'])) { ?>
+                              <a href="login.php" class="login">log in</a>
+                              <a href="registration.php" class="template-btn">sign up</a>
+                          <?php }else{?>
+                              <a href="logout.php" class="template-btn">Log Out</a>
+                           <?php } ?>                       
                         </li>
                      </ul>
                   </div>
