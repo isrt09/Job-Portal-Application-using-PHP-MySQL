@@ -3,6 +3,7 @@
    include('db/db_connect.php');
    include_once('header.php');
    include 'functions.php';
+   redirect_dashboard();
    $email_error    = '';
    $mobile_error   = '';
    $message        ='';

@@ -67,6 +67,7 @@
                               <a href="login.php" class="login">log in</a>
                               <a href="registration.php" class="template-btn">sign up</a>
                           <?php }else{?>
+                              <a href="profile.php">Profile</a>
                               <a href="logout.php" class="template-btn">Log Out</a>
                            <?php } ?>                       
                         </li>

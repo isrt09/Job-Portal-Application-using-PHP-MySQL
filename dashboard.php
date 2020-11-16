@@ -4,7 +4,8 @@
    include 'functions.php';     
    if(!isset($_SESSION['users_id'])){
    		header('location:index.php'); 
-   } 
+   }
+   redirect_login(); 
 ?>
 <div class="container">
    <div class="row">
