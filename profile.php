@@ -4,6 +4,8 @@
    include 'functions.php';
    redirect_login();
    $user = user_info();
+    echo '<pre>';
+    print_r($_SESSION);
 ?>
 <div class="container">
    <h3 align="center">User Profile </h3>     
@@ -29,6 +31,7 @@
           <td><?php echo $user['mobile']; ?></td>
        </tr>      
     </table>
+    <a href="profile_edit.php" class="btn btn-primary mb-5">EDIT</a>
 </div>
 <?php 
    include_once('footer.php');

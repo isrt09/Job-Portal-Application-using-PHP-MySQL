@@ -8,7 +8,7 @@
    $mobile_error   = '';
    $message        ='';
    if(isset($_POST['login'])){
-      extract($_POST);
+      extract($_POST);     
       $submit = true;
       if(!$mobile){
          $mobile_error = 'Please Enter Your Mobile...'; 
@@ -23,7 +23,7 @@
          $submit = false;
       }
 
-      if($email && $mobile){                
+      if($email && $mobile){                    
           login($email, $mobile);          
       }
    }

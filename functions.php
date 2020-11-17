@@ -23,6 +23,7 @@
 		if($row){
 			$_SESSION['users_id'] = $row['users_id'];			
 			$_SESSION['name']     = $row['first_name'];			
+			$_SESSION['user_type_id']     = $row['user_type_id'];			
 			header('location:dashboard.php');
 		}else{
 			$message = "LOGIN FAILED";
