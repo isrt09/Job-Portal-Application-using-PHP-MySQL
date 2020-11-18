@@ -54,7 +54,7 @@
                         </li>
                         <li><a href="contact-us.html">contact</a></li>
                         <li>
-                           <?php if(isset($_SESSION['users_id'])) { ?>
+                           <?php if(isset($_SESSION['users_id']) && $_SESSION['user_type_id']==1) { ?>
                            <a href="#">Setting</a>
                            <ul class="sub-menu">                             
                               <li><a href="category.php">Category Setting</a></li>
