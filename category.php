@@ -1,5 +1,9 @@
 <?php 
+   include('db/db_connect.php');
    include_once('header.php');
+   include 'functions.php';
+   check_admin_access();
+
 ?>
 <div class="container">
    <form action="category.php" method="post">

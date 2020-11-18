@@ -51,4 +51,10 @@
 		$result  = mysqli_fetch_assoc($query);
 		return $result;
 	}
+
+	function check_admin_access(){
+		if($_SESSION['user_type_id'] !=1){
+			header('location:forbidden.php');
+		}
+	}
  ?>
