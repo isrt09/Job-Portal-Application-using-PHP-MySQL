@@ -54,13 +54,15 @@
                         </li>
                         <li><a href="contact-us.html">contact</a></li>
                         <li>
-                           <a href="#">pages</a>
-                           <ul class="sub-menu">
-                              <li><a href="job-search.html">Job Search</a></li>
+                           <?php if(isset($_SESSION['users_id'])) { ?>
+                           <a href="#">Setting</a>
+                           <ul class="sub-menu">                             
+                              <li><a href="category.php">Category Setting</a></li>
                               <li><a href="job-single.html">Job Single</a></li>
                               <li><a href="pricing-plan.html">Pricing Plan</a></li>
-                              <li><a href="elements.html">Elements</a></li>
+                              <li><a href="elements.html">Elements</a></li>              
                            </ul>
+                           <?php } ?>
                         </li>
                         <li class="menu-btn">
                               <?php if(!isset($_SESSION['users_id'])) { ?>

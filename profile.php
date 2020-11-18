@@ -3,9 +3,7 @@
    include_once('header.php');
    include 'functions.php';
    redirect_login();
-   $user = user_info();
-    echo '<pre>';
-    print_r($_SESSION);
+   $user = user_info();    
 ?>
 <div class="container">
    <h3 align="center">User Profile </h3>     
