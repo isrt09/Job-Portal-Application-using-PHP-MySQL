@@ -57,4 +57,13 @@
 			header('location:forbidden.php');
 		}
 	}
+
+	function save_category($name, $status){
+		global $con;
+		$user_id = $_SESSION['users_id'];
+		$date = date('Y-m-d');
+		$sql  = "insert into category(name, status, created_by, created_at) values('$name','$status','$user_id','$date')";
+		$result   = mysqli_query($con, $sql);		
+		return $result;
+	}
  ?>
