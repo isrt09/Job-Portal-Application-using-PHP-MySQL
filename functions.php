@@ -74,4 +74,11 @@
 		$row   = mysqli_fetch_assoc($query);
 		return $row;
 	}
+
+	function get_all_category(){
+		global $con;
+		$sql   = "SELECT category.*, tbl_status.name as category_name FROM category JOIN tbl_status ON category.status = tbl_status.id";
+		$result = mysqli_query($con,$sql);		
+		return $result;
+	}
  ?>

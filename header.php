@@ -44,7 +44,7 @@
                      <ul>
                         <li class="active"><a href="index.html">home</a></li>
                         <li><a href="about.html">about us</a></li>
-                        <li><a href="job-category.html">category</a></li>
+                        <li><a href="category_list.php">category</a></li>
                         <li>
                            <a href="#">blog</a>
                            <ul class="sub-menu">
