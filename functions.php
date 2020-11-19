@@ -66,4 +66,12 @@
 		$result   = mysqli_query($con, $sql);		
 		return $result;
 	}
+
+	function check_category($name){
+		global $con;
+		$sql   = "SELECT * from category WHERE name = '$name'";
+		$query = mysqli_query($con,$sql);
+		$row   = mysqli_fetch_assoc($query);
+		return $row;
+	}
  ?>

@@ -5,13 +5,25 @@
    check_admin_access();   
 ?>
 <?php 
+	$success = '';
 	if(isset($_POST['category'])){
-   	  extract($_POST);
-   	  save_category($name, $status);
-   	  
+   	  extract($_POST);   	  
+   	  if(!$name){
+   	  	echo "<h2 align='center' class='alert-danger'>Please Input Category Name ....</h2>";
+   	  }else{
+   	  	$data = check_category($name);
+   	  	if($data){   	  		 
+   	  	     $success = "This category already exists...!";	
+   	  	}else{
+   	  		save_category($name, $status);	
+   	  		$success = "Category Saved Successfully!";	
+   	  	}
+   	  	
+   	  }   	  
    }
  ?>
 <div class="container">
+	<h2 align="center" class="alert-success"><?php echo $success; ?></h2>
    <form action="category.php" method="post">
       <div class="form-group">
          <label for="category">Category Name</label>
