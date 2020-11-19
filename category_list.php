@@ -29,7 +29,11 @@
           background-color: #4CAF50;
           color: white;
         }
-      </style>
+      </style>      
+      <p>
+         <a href="category.php" class="btn btn-info">ADD Category</a>
+        <a href="category_list.php" class="btn btn-success">Show Category</a>
+      </p>
       <table id="customers" class="table table-bordered mb-3">
         <tr>
           <th class="text-center">ID</th>
@@ -49,9 +53,9 @@
                 <td class="text-center" ><?php echo $row['category_name']; ?></td>
                 <td class="text-center" ><?php echo $row['created_at']; ?></td>
                 <td class="text-center">
-                    <a href="" class="btn btn-success">Edit</a>
-                    <a href="" class="btn btn-info">View</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <a href="category.php?id='<?php echo base64_encode($row['id']); ?>'" class="btn btn-success">Edit</a>
+                    <a href="category.php?id='<?php echo base64_encode($row['id']); ?>'" class="btn btn-info">View</a>
+                    <a href="category.php?id='<?php echo base64_encode($row['id']); ?>'" class="btn btn-danger">Delete</a>
                 </td>                
            <?php } ?>  
         </tr>        

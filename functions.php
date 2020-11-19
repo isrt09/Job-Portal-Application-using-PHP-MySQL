@@ -67,9 +67,16 @@
 		return $result;
 	}
 
-	function check_category($name){
-		global $con;
-		$sql   = "SELECT * from category WHERE name = '$name'";
+	function check_category($name=null,$id=null){
+		if($name){
+			$where_condition ="WHERE name = '$name'";
+		}
+
+		if($id){
+			$where_condition ="WHERE id = '$id'";
+		}
+		global $con;		
+		$sql   = "SELECT * from category $where_condition" ;
 		$query = mysqli_query($con,$sql);
 		$row   = mysqli_fetch_assoc($query);
 		return $row;
@@ -81,4 +88,21 @@
 		$result = mysqli_query($con,$sql);		
 		return $result;
 	}
+
+	function category_update($name,$status,$id){
+		global $con;
+		$user_id = $_SESSION['users_id'];
+		$date    = date('d-m-Y');
+		$sql = "UPDATE category SET name='$name', status='$status', updated_by='$user_id',updated_at='$date' WHERE id='$id'";
+		$result = mysqli_query($con,$sql);
+		return $result;
+	}
+
+	function category_delete($id){
+		global $con;
+		$sql = "DELETE from category WHERE id =$id";
+		$result = mysqli_query($con,$sql);
+		return $result;
+	}
+
  ?>

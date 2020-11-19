@@ -45,6 +45,7 @@
                         <li class="active"><a href="index.html">home</a></li>
                         <li><a href="about.html">about us</a></li>
                         <li><a href="category_list.php">category</a></li>
+                        <?php if(isset($_SESSION['users_id'])) { ?>
                         <li>
                            <a href="#">blog</a>
                            <ul class="sub-menu">
@@ -52,6 +53,7 @@
                               <li><a href="blog-details.html">Blog Details</a></li>
                            </ul>
                         </li>
+                        <?php } ?>
                         <li><a href="contact-us.html">contact</a></li>
                         <li>
                            <?php if(isset($_SESSION['users_id']) && $_SESSION['user_type_id']==1) { ?>
