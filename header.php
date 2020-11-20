@@ -49,8 +49,8 @@
                         <li>
                            <a href="#">blog</a>
                            <ul class="sub-menu">
-                              <li><a href="blog-home.html">Blog Home</a></li>
-                              <li><a href="blog-details.html">Blog Details</a></li>
+                              <li><a href="new_post.php">New Post</a></li>
+                              <li><a href="my_post.php">My Post</a></li>
                            </ul>
                         </li>
                         <?php } ?>
